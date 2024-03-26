@@ -1,7 +1,6 @@
 # Pysaprk-Best-Coding-Pratices
 Optimized PySpark scripts &amp; best practices for big data processing.
 
-```
 ## 1. Separate Imports
 
 Import or install libraries in a separate cell to avoid repetitive execution.

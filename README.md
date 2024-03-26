@@ -323,4 +323,3 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)  # Disable automatic 
 # Perform joins with different strategies and analyze performance
 ```
 
-```

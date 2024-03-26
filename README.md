@@ -222,3 +222,105 @@ def my_function():
 # Call the function
 my_function()
 ```
+
+## 23. Handle Null Values Appropriately
+
+Handle null values gracefully to prevent errors and ensure accurate processing.
+
+```python
+# Replace null values with a default or meaningful placeholder
+df_filled = df.fillna(0)  # Replace null values with 0
+```
+
+## 24. Use Broadcast Join for Large Tables
+
+Optimize join operations with large tables using broadcast joins.
+
+```python
+from pyspark.sql.functions import broadcast
+
+# Perform a broadcast join for better performance with large tables
+joined_df = large_df.join(broadcast(small_df), "common_column")
+```
+
+## 25. Limit Data for Development and Testing
+
+Limit data size during development and testing to accelerate iterations.
+
+```python
+# Limit data for faster testing
+sample_df = df.sample(fraction=0.1, seed=42)  # Sample 10% of the data
+```
+
+## 26. Handle Data Skewness
+
+Handle data skewness to prevent performance bottlenecks.
+
+```python
+# Use techniques like bucketing to handle data skewness
+df_bucketed = df.repartitionByRange(10, "column_name")
+```
+
+## 27. Optimize UDFs (User Defined Functions)
+
+Optimize user-defined functions for better performance.
+
+```python
+from pyspark.sql.functions import udf
+from pyspark.sql.types import IntegerType
+
+# Define and register UDF
+@udf(returnType=IntegerType())
+def my_udf_function(value):
+    # Your logic here
+    return processed_value
+
+# Apply UDF to DataFrame
+df_with_udf = df.withColumn("processed_column", my_udf_function(df["input_column"]))
+```
+
+## 28. Handle Timeouts and Retries
+
+Handle timeouts and retries for resilient job execution.
+
+```python
+from pyspark.sql.utils import AnalysisException
+import time
+
+# Example with retries
+retry_count = 3
+retry_delay = 5  # in seconds
+
+for _ in range(retry_count):
+    try:
+        # Your code here
+        break  # If successful, break out of the loop
+    except AnalysisException as e:
+        logging.error(f"AnalysisException occurred: {e}. Retrying...")
+        time.sleep(retry_delay)
+```
+
+## 29. Utilize Window Functions for Complex Aggregations
+
+Use window functions for complex aggregations and analytics.
+
+```python
+from pyspark.sql.window import Window
+from pyspark.sql.functions import row_number
+
+# Example of row number calculation within a window
+window_spec = Window.partitionBy("partition_column").orderBy("order_column")
+df_with_row_number = df.withColumn("row_number", row_number().over(window_spec))
+```
+
+## 30. Experiment with Different Execution Plans
+
+Experiment with different execution plans to find the most efficient one.
+
+```python
+# Example: Changing join strategies
+spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)  # Disable automatic broadcast join
+# Perform joins with different strategies and analyze performance
+```
+
+```

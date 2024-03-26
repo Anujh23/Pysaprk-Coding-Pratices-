@@ -1,6 +1,20 @@
 # Pysaprk-Coding-Pratices-
 "Optimized PySpark scripts &amp; best practices for big data processing. Examples include data partitioning, memory optimization. Well-documented &amp; clean code for scalability."
 
+# Pysaprk-Coding-Pratices-
+
+Optimized PySpark scripts & best practices for big data processing. Examples include:
+
+1. **Importing Libraries:** Import or install libraries in a separate cell to avoid repetitive execution.
+   ```python
+   # Cell 1:
+   import pandas as pd
+   import numpy as np
+
+   # Cell 2:
+   # Further code
+
+
 1. Importing libraries in a separate cell to avoid repetitive execution.
    
    # Importing libraries in a separate cell

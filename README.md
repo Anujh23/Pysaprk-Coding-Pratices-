@@ -1,7 +1,5 @@
 # Pysaprk-Best-Coding-Pratices
 Optimized PySpark scripts &amp; best practices for big data processing.
-Examples include data partitioning, memory optimization. Well-documented &amp; clean code for scalability.
-Here's how you can format these best practices in Markdown for GitHub:
 
 ```
 ## 1. Separate Imports

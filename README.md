@@ -230,18 +230,7 @@ Handle null values gracefully to prevent errors and ensure accurate processing.
 df_filled = df.fillna(0)  # Replace null values with 0
 ```
 
-## 24. Use Broadcast Join for Large Tables
-
-Optimize join operations with large tables using broadcast joins.
-
-```python
-from pyspark.sql.functions import broadcast
-
-# Perform a broadcast join for better performance with large tables
-joined_df = large_df.join(broadcast(small_df), "common_column")
-```
-
-## 25. Limit Data for Development and Testing
+## 24. Limit Data for Development and Testing
 
 Limit data size during development and testing to accelerate iterations.
 
@@ -250,7 +239,7 @@ Limit data size during development and testing to accelerate iterations.
 sample_df = df.sample(fraction=0.1, seed=42)  # Sample 10% of the data
 ```
 
-## 26. Handle Data Skewness
+## 25. Handle Data Skewness
 
 Handle data skewness to prevent performance bottlenecks.
 
@@ -259,7 +248,7 @@ Handle data skewness to prevent performance bottlenecks.
 df_bucketed = df.repartitionByRange(10, "column_name")
 ```
 
-## 27. Optimize UDFs (User Defined Functions)
+## 26. Optimize UDFs (User Defined Functions)
 
 Optimize user-defined functions for better performance.
 
@@ -277,7 +266,7 @@ def my_udf_function(value):
 df_with_udf = df.withColumn("processed_column", my_udf_function(df["input_column"]))
 ```
 
-## 28. Handle Timeouts and Retries
+## 27. Handle Timeouts and Retries
 
 Handle timeouts and retries for resilient job execution.
 
@@ -298,7 +287,7 @@ for _ in range(retry_count):
         time.sleep(retry_delay)
 ```
 
-## 29. Utilize Window Functions for Complex Aggregations
+## 28. Utilize Window Functions for Complex Aggregations
 
 Use window functions for complex aggregations and analytics.
 
@@ -311,7 +300,7 @@ window_spec = Window.partitionBy("partition_column").orderBy("order_column")
 df_with_row_number = df.withColumn("row_number", row_number().over(window_spec))
 ```
 
-## 30. Experiment with Different Execution Plans
+## 29. Experiment with Different Execution Plans
 
 Experiment with different execution plans to find the most efficient one.
 
